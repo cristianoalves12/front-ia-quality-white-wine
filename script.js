@@ -17,9 +17,4 @@ btnAction.addEventListener("click", function(event) {
         body: JSON.stringify(data)
     }).then(res => res.json()).then(data => console.log(data))
 
-
-
-    // let formDados = document.querySelector("#form-dados");
-    // console.log(formDados.fixedAcidity.value);
-
 })
