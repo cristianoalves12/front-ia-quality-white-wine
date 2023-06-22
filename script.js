@@ -1,15 +1,15 @@
 let btnAction = document.querySelector("#btn-action");
-let formDados = document.querySelector("#form-dados");
+let formData = document.querySelector("#form-dados");
 let result = document.querySelector(".result");
 
 btnAction.addEventListener("click", function(event) {
     event.preventDefault();
 
-    let formValues = new FormData(formDados);
+    let formValues = new FormData(formData);
     let data = Object.fromEntries(formValues);
     result.textContent="QUALIDADE";
 
-    fetch('https://reqres.in/api/users', {
+    fetch('http://localhost:5000/api/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
