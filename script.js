@@ -22,7 +22,7 @@ btnAction.addEventListener("click", function(event) {
         },
         body: JSON.stringify(data)
     }).then(res => res.json()).then(data => {
-        result.textContent = `Qualidade: ${data.prediction} | ${String(data.probability * 100).slice(0,5)}%` 
+        result.textContent = `Qualidade: ${data.prediction} | ${data.probability}%` 
     })
 
 })
