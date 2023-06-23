@@ -7,14 +7,22 @@ btnAction.addEventListener("click", function(event) {
 
     let formValues = new FormData(formData);
     let data = Object.fromEntries(formValues);
-    result.textContent="QUALIDADE";
-
+    data = Object.keys(data).reduce((curr, next) => {
+        return {
+            ...curr,
+            [next]: Number(data[next])
+        }
+        }, {})
+    result.textContent="Calculando...";
+    
     fetch('http://localhost:5000/api/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-    }).then(res => res.json()).then(data => console.log(data))
+    }).then(res => res.json()).then(data => {
+        result.textContent = `Qualidade: ${data.prediction} | ${data.probability}%` 
+    })
 
 })
