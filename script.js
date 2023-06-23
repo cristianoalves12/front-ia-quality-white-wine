@@ -15,14 +15,14 @@ btnAction.addEventListener("click", function(event) {
         }, {})
     result.textContent="Calculando...";
     
-    fetch('https://sea-turtle-app-jolom.ondigitalocean.app/api/predict', {
+    fetch('http://localhost:5000/api/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     }).then(res => res.json()).then(data => {
-        result.textContent = `Qualidade: ${data.prediction} | ${data.probability}%` 
+        result.textContent = `Qualidade: ${data.prediction} | ${String(data.probability * 100).slice(0,5)}%` 
     })
 
 })
