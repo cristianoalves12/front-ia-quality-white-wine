@@ -15,7 +15,7 @@ btnAction.addEventListener("click", function(event) {
         }, {})
     result.textContent="Calculando...";
     
-    fetch('http://localhost:5000/api/predict', {
+    fetch('https://sea-turtle-app-jolom.ondigitalocean.app/api/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
